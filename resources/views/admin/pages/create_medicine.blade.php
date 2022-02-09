@@ -2,7 +2,7 @@
 @section('content')
 <h1>Create Medicine</h1>
 <hr>
-<form action="{{route('medicine.store')}}" method="POST">
+<form action="{{route('medicine.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
       <div class="form-group">
         <label for="name">Medicine Name</label>
@@ -33,8 +33,8 @@
           </textarea>
       </div>
       <div class="mb-3">
-        <label for="cause_image" class="form-label" style="font-size:20px;"><b>Insert Image</b></label>
-        <input class="form-control" type="file" id="cause_image" name="cause_image">
+        <label for="medicine_image" class="form-label">Insert Image</label>
+        <input class="form-control" type="file" id="medicine_image" name="medicine_image">
       </div>
       <button type="submit" class="btn btn-success mb-3">Submit</button>
     </form>

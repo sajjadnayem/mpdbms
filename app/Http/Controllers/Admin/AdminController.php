@@ -24,11 +24,21 @@ class AdminController extends Controller
    public function StoreMedicine(Request $request)
    {
     //    dd($request->all());
+    $image_name=null;
+    if($request->hasfile('medicine_image'))
+    {
+        $image_name=date('Ymdhis').'.'.$request->file('medicine_image')->getClientOriginalExtension();
+        // dd($image_name);
+        $request->file('medicine_image')->storeAs('/uploads/medicine',$image_name);
+
+    }
+    //    dd($request->all());
        Medicine::create([
            'name'=>$request->name,
            'category_id'=>$request->category,
            'generic_id'=>$request->generic,
-           'details'=>$request->details
+           'details'=>$request->details,
+           'image'=>$image_name,
        ]);
        return redirect()->back()->with('success','Medicine has been created successfully.');
    }
