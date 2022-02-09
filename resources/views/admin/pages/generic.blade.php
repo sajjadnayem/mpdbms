@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-<h1>Category List</h1>
+<h1>Generic List</h1>
 <hr>
 @if(session()->has('success'))
 <p class="alert alert-success">
@@ -25,7 +25,7 @@
   </ul>
 </div>
 @endif
-<a href="{{route('category.create')}}" class="btn btn-primary">Create Category</a><br><br>
+<a href="{{route('generic.create')}}" class="btn btn-primary">Create Generic Name</a><br><br>
 <div>
     <table class="table table-bordered">
         <thead>
@@ -37,14 +37,14 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($category as $key=>$category)
+            @foreach ($generic as $key=>$item)
             <tr>
                 <th scope="row">{{$key+1}}</th>
-                <td>{{$category->name}}</td>
-                <td>{{$category->details}}</td>
+                <td>{{$item->name}}</td>
+                <td>{{$item->details}}</td>
                 <td>
-                    <a href="{{route('edit.category', $category->id)}}"><i class="fas fa-edit"></i></a>
-                    <a href="{{route('delete.category', $category->id)}}"><i class="fas fa-trash"></i></a>
+                    <a href="{{route('generic.edit', $item->id)}}"><i class="fas fa-edit"></i></a>
+                    <a href="{{route('generic.delete', $item->id)}}"><i class="fas fa-trash"></i></a>
                 </td>
             </tr>
             @endforeach

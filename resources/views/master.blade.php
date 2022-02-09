@@ -18,6 +18,9 @@
         <link href="{{url('backend/css/app.min.css')}}" rel="stylesheet" type="text/css" id="light-style" />
         <link href="{{url('backend/css/app-dark.min.css')}}" rel="stylesheet" type="text/css" id="dark-style" />
 
+        <!-- font awesome cdn-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     </head>
 
     <body class="loading" data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":false, "showRightSidebarOnStart": true}'>

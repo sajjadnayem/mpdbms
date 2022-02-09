@@ -59,9 +59,16 @@
                 </a>
             </li>
             <li class="side-nav-item">
-                <a href="apps-calendar.html" class="side-nav-link">
+                <a href="{{route('generic')}}" class="side-nav-link">
                     <i class="uil-copy-alt"></i>
                     <span> Generic </span>
+                </a>
+            </li>
+
+            <li class="side-nav-item">
+                <a href="{{route('medicine')}}" class="side-nav-link">
+                    <i class="uil-copy-alt"></i>
+                    <span> Medicine </span>
                 </a>
             </li>
 
