@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\Category;
 use App\Models\Generic;
+use App\Models\Category;
 use App\Models\Medicine;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Brian2694\Toastr\Facades\Toastr;
 
 class AdminController extends Controller
 {
@@ -40,6 +41,7 @@ class AdminController extends Controller
            'details'=>$request->details,
            'image'=>$image_name,
        ]);
+       Toastr::success('Medicine Created successfully :)','Success');
        return redirect()->back()->with('success','Medicine has been created successfully.');
    }
 }

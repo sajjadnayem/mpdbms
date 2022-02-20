@@ -2,6 +2,7 @@
 @section('content')
 <h1>Create Medicine</h1>
 <hr>
+
 <form action="{{route('medicine.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
       <div class="form-group">

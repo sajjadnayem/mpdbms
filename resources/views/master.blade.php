@@ -21,6 +21,10 @@
         <!-- font awesome cdn-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+        <!-- toastr cdn -->
+        <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+        <!-- close toastr -->
+
     </head>
 
     <body class="loading" data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":false, "showRightSidebarOnStart": true}'>
@@ -689,5 +693,13 @@
         <!-- demo app -->
         <script src="{{url('backend/js/pages/demo.dashboard.js')}}"></script>
         <!-- end demo js-->
+
+        <!-- toastr -->
+        <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+        <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+
+        {!! Toastr::message() !!}
+
+        <!-- end toastr -->
     </body>
 </html>
