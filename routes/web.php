@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DemandController;
+use App\Http\Controllers\Admin\MachineController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,3 +41,18 @@ Route::get('/generic/delete/{generic_id}',[CategoryController::class,'deleteGene
 Route::get('/medicine', [AdminController::class, 'medicine'])->name('medicine');
 Route::get('/create/medicine', [AdminController::class, 'CreateMedicine'])->name('medicine.create');
 Route::post('/store/medicine', [AdminController::class, 'StoreMedicine'])->name('medicine.store');
+Route::get('/view/medicine/{medicine_id}', [AdminController::class, 'viewMedicine'])->name('medicine.view');
+Route::get('/edit/medicine/{medicine_id}', [AdminController::class, 'editMedicine'])->name('medicine.edit');
+Route::put('/update/medicine{medicine_id}',[AdminController::class, 'updateMedicine'])->name('medicine.update');
+Route::get('/delete/medicine/{medicine_id}', [AdminController::class, 'deleteMedicine'])->name('medicine.delete');
+
+//for creating machine
+Route::get('/machine', [MachineController::class, 'machine'])->name('machine');
+Route::get('/create/machine/', [MachineController::class, 'createMachine'])->name('create.machine');
+Route::post('/store/machine/', [MachineController::class, 'StoreMachine'])->name('machine.store');
+
+//for demand
+Route::get('/demand', [DemandController::class, 'demand'])->name('demand');
+Route::get('/create/demand', [DemandController::class, 'createDemand'])->name('demand.create');
+Route::post('/store/demand', [DemandController::class, 'storeDemand'])->name('store.demand');
+Route::get('/view/demand/details/{demand_id}', [DemandController::class, 'demandDetails'])->name('demand.view');

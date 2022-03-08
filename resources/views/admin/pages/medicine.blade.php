@@ -21,11 +21,11 @@
                 <td>{{optional($item->category)->name}}</td>
                 <td>{{optional($item->generic)->name}}</td>
                 <td>{{$item->details}}</td>
-                <td><img src="{{url('/uploads/medicine/'.$item->image)}}" style="border-radius:4px" width="100px" alt="causes image"></td>
+                <td><img src="{{url('/uploads/medicine/'.$item->image)}}" style="border-radius:4px" width="100px" alt="medicine image"></td>
                 <td>
-                    <a href=""><i class="fa-solid fa-eye"></i></a>
-                    <a href="#"><i class="fas fa-edit"></i></a>
-                    <a href="#"><i class="fas fa-trash"></i></a>
+                    <a href="{{route('medicine.view', $item->id)}}"><i class="fa-solid fa-eye"></i></a>
+                    <a href="{{route('medicine.edit', $item->id)}}"><i class="fas fa-edit"></i></a>
+                    <a href="{{route('medicine.delete', $item->id)}}"><i class="fas fa-trash"></i></a>
                 </td>
             </tr>
             @endforeach

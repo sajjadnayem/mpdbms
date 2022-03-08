@@ -24,6 +24,7 @@
         <!-- toastr cdn -->
         <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
         <!-- close toastr -->
+        <!--Cdn for multiselect -->
 
     </head>
 
@@ -699,7 +700,8 @@
         <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 
         {!! Toastr::message() !!}
-
         <!-- end toastr -->
+
+        <!--multi select-->
     </body>
 </html>

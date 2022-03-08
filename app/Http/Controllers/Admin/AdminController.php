@@ -41,7 +41,49 @@ class AdminController extends Controller
            'details'=>$request->details,
            'image'=>$image_name,
        ]);
-       Toastr::success('Medicine Created successfully :)','Success');
-       return redirect()->back()->with('success','Medicine has been created successfully.');
+       Toastr::success('Medicine Created successfully:)','Success');
+       return redirect()->route('medicine');
    }
+   public function viewMedicine($medicine_id)
+   {
+       $medicine = Medicine::find($medicine_id);
+       return view('admin.pages.view_medicine_details', compact('medicine'));
+   }
+   public function editMedicine($medicine_id)
+   {
+       $medicine = Medicine::find($medicine_id);
+       $categorylist=Category::all();
+       $genericlist = Generic::all();
+       return view('admin.pages.edit_medicine', compact('medicine', 'categorylist', 'genericlist'));
+   }
+   public function updateMedicine(Request $request, $medicine_id)
+   {
+       $medicine = Medicine::find($medicine_id);
+        $image_name=null;
+        if($request->hasfile('medicine_image'))
+        {
+            $image_name=date('Ymdhis').'.'.$request->file('medicine_image')->getClientOriginalExtension();
+            // dd($image_name);
+            $request->file('medicine_image')->storeAs('/uploads/medicine',$image_name);
+
+        }
+    //    dd($request->all());
+       $medicine->update([
+           'name'=>$request->name,
+           'category_id'=>$request->category,
+           'generic_id'=>$request->generic,
+           'details'=>$request->details,
+           'image'=>$image_name,
+       ]);
+       Toastr::success('Medicine updated successfully :)','Success');
+       return redirect()->route('medicine');
+   }
+   public function deleteMedicine($medicine_id)
+   {
+       Medicine::find($medicine_id)->delete();
+       Toastr::error('Medicine has been deleted','Danger');
+       return redirect()->route('medicine');
+   }
+
+
 }

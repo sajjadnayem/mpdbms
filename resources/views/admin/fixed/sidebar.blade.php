@@ -73,6 +73,27 @@
             </li>
 
             <li class="side-nav-item">
+                <a href="{{route('machine')}}" class="side-nav-link">
+                    <i class="uil-copy-alt"></i>
+                    <span> Machine </span>
+                </a>
+            </li>
+
+            <li class="side-nav-item">
+                <a href="{{route('machine')}}" class="side-nav-link">
+                    <i class="uil-copy-alt"></i>
+                    <span> Medichine Machine </span>
+                </a>
+            </li>
+
+            <li class="side-nav-item">
+                <a href="{{route('demand')}}" class="side-nav-link">
+                    <i class="uil-copy-alt"></i>
+                    <span> Demand </span>
+                </a>
+            </li>
+
+            <li class="side-nav-item">
                 <a href="apps-chat.html" class="side-nav-link">
                     <i class="uil-comments-alt"></i>
                     <span> Chat </span>
