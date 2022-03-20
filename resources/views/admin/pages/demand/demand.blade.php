@@ -8,6 +8,7 @@
         <th scope="col">Created By</th>
         <th scope="col">From Date</th>
         <th scope="Col">To Date</th>
+        <th scope="col">Note</th>
         {{-- <th scope="col">Demanded Medicine</th>
         <th scope="col">Demand Details</th>
         <th scope="col">Quantity</th> --}}
@@ -21,6 +22,7 @@
             <td>{{$item->name}}</td>
             <td>{{$item->from_date}}</td>
             <td>{{$item->to_date}}</td>
+            <td>{{$item->note}}</td>
             {{-- <td>
                 @foreach ($item->medicine as $data)
                 <span class="badge rounded-pill bg-primary">{{$data->medicine->name}}</span>

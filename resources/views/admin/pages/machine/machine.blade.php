@@ -18,7 +18,7 @@
                 <td>{{$item->name}}</td>
                 <td>
                     @foreach ($item->medicine as $data)
-                        <span class="badge badge-info">{{$data->medicine->name}}</span>
+                        <span class="badge bg-info text-dark">{{$data->medicine->name}}</span>
                     @endforeach
                 </td>
                 <td>{{$item->details}}</td>

@@ -1,6 +1,7 @@
 @extends('master')
 @section('content')
-<form>
+<form action="{{route('demand.add')}}">
+    @csrf
     <div class="row">
             <div class="form-group col-6">
               <label for="medicine">Medicine Name</label>
@@ -13,7 +14,7 @@
             </div>
             <div class="form-group col-6">
               <label for="quantity">Quantity</label>
-              <input type="number" class="form-control" placeholder="Please Enter Quantity">
+              <input name="quantity" type="number" class="form-control" placeholder="Please Enter Quantity">
             </div>
     </div><br>
     <button type="submit" class="btn btn-success">Add Medicine</button><br>
@@ -28,6 +29,61 @@
 
       <button type="submit" class="btn btn-primary">Create Demand</button>  --}}
 </form>
+<h1>Medicines</h1>
+<a href="{{route('demand.forgot')}}" class="btn btn-info">Clear</a>
+<table>
+    <thead>
+        <tr>
+            <th>Medicine name</th>
+            <th>Quantity</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    @if(!empty($cart))
+    @foreach($cart as $data)
+    <tr>
+        <td>{{$data['name']}}</td>
+        <td>
+            <form action="{{route('demand.update',$data['medicine_id'])}}" method="post">
+                @csrf
+                <input value="{{$data['quantity']}}" name="quantity" type="number" class="form-control" placeholder="Enter Quantity">
+            </form>
+        </td>
+        <td>
+            <a href="{{route('demand.delete',$data['medicine_id'])}}" class="btn btn-info">Delete</a>
+        </td>
+    </tr>
+    @endforeach
+    @endif
+    </tbody>
+</table>
+<form action="{{route('store.demand')}}" method="POST">
+  @csrf
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="name">From Date</label>
+        <input type="date" class="form-control" id="name" name="from_date" placeholder="Enter From Date">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="name">To Date</label>
+        <input type="date" class="form-control" id="name" name="to_date" placeholder="Enter From Date">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="name">Note</label>
+        <input type="text" class="form-control" id="name" name="note" placeholder="Enter any note">
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-info">Submit</button>
+  
+</form>
+
 
 
 

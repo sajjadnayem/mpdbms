@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DemandController;
 use App\Http\Controllers\Admin\MachineController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +18,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/admin/login', [UserController::class, 'login'])->name('admin.login');
+Route::post('/admin/dologin', [UserController::class, 'dologin'])->name('admin.dologin');
+Route::get('/logout', [UserController::class, 'logout'])->name('admin.logout');
+
 Route::get('/', function () {
     return view('master');
-});
+})->name('admin.master');
 // Route::get('/admin/login', [AdminController::class, 'login']);
 //for category controller
 Route::get('/category', [CategoryController::class, 'category'])->name('category');
@@ -54,5 +59,9 @@ Route::post('/store/machine/', [MachineController::class, 'StoreMachine'])->name
 //for demand
 Route::get('/demand', [DemandController::class, 'demand'])->name('demand');
 Route::get('/create/demand', [DemandController::class, 'createDemand'])->name('demand.create');
+Route::get('/add/demand',[DemandController::class,'demandAdd'])->name('demand.add');
+Route::post('demand/update/{demand_id}',[DemandController::class,'updateDemand'])->name('demand.update');
+Route::get('/demand/delete/{demand_id}',[DemandController::class,'deleteDemand'])->name('demand.delete');
+Route::get('/demand/forgot',[DemandController::class,'createdemand'])->name('demand.forgot');
 Route::post('/store/demand', [DemandController::class, 'storeDemand'])->name('store.demand');
 Route::get('/view/demand/details/{demand_id}', [DemandController::class, 'demandDetails'])->name('demand.view');

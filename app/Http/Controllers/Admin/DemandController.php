@@ -9,6 +9,7 @@ use App\Models\DemandMedicine;
 use App\Models\Medicine;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
+use MongoDB\Driver\Session;
 
 class DemandController extends Controller
 {
@@ -24,31 +25,73 @@ class DemandController extends Controller
     public function createDemand()
     {
         $medicine = Medicine::all();
-        return view('admin.pages.demand.create_demand', compact('medicine'));
+        $cart = \session()->get('cart');
+        return view('admin.pages.demand.create_demand', compact('medicine','cart'));
     }
+
+    public function demandAdd(Request $request)
+    {
+        $medicine = Medicine::find($request->medicine);
+        // checking the cart
+        $cart = \session()->has('cart') ? \session()->get('cart') : [];
+        // adding to the cart
+        if (array_key_exists($medicine->id,$cart)){
+            $cart[$medicine->id]['quantity']=$cart[$medicine->id]['quantity']+$request->quantity;
+        }
+        else{
+            $cart[$medicine->id]=[
+                'medicine_id' =>$medicine->id,
+                'name'=> $medicine->name,
+                'quantity'=>$request->quantity
+            ];
+        }
+        \session(['cart'=>$cart]);
+        return redirect()->back();
+
+    }
+
+    public function updateDemand(Request $request,$id)
+    {
+//        dd($request->all(),$id);
+        $cart = \session()->get('cart');
+        $cart[$id]['quantity']=$request->quantity;
+        \session()->put('cart',$cart);
+        return redirect()->back();
+
+    }
+
+    public function deleteDemand($id)
+    {
+        $cart = \session('cart');
+        unset($cart[$id]);
+        \session()->put('cart',$cart);
+        return redirect()->back();
+    }
+
+    public function forgotDemand()
+    {
+      \session()->forget('cart');
+      return redirect()->back();
+    }
+
     public function storeDemand(Request $request)
     {
-        // dd($request->all());
+        // dd($request->all(),session('cart'));
+        $carts = session()->get('cart');
         // $madicine_name = json_encode($request->medicine_name);
         // dd($madicine_name);
         $demand = Demand::create([
-            'name'=>$request->name,
+            'name'=>auth()->user()->name,
             'from_date'=>$request->from_date,
             'to_date'=>$request->to_date,
-
+            'note'=>$request->note,
         ]);
 
-        foreach($request->medicine_name as $medicine_id){
+        foreach($carts as $cart){
             $demandmedicine = DemandMedicine::create([
                 'demand_id'=> $demand->id,
-                'medicine_id'=> $medicine_id
-            ]);
-
-            DemandDetails::create([
-                'demand_id'=>$demand->id,
-                'demandmedicine_id'=> $demandmedicine->id,
-                'details'=>$request->details,
-                'quantity'=>$request->quantity
+                'medicine_id'=> $cart['medicine_id'],
+                'quantity'=>$cart['quantity'],
             ]);
         }
         Toastr::success('Demand created successfully', 'demand');
@@ -57,7 +100,8 @@ class DemandController extends Controller
     }
     public function demandDetails($demand_id)
     {
-        $demand = DemandDetails::with('demandmedicine')->where('demand_id',$demand_id)->get();
+        $demand = DemandMedicine::with('medicine')->where('demand_id',$demand_id)->get();
+        // dd($demand);
         return view('admin.pages.demand.demand_details', compact('demand'));
     }
 }

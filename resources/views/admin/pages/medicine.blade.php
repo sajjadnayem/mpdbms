@@ -21,7 +21,7 @@
                 <td>{{optional($item->category)->name}}</td>
                 <td>{{optional($item->generic)->name}}</td>
                 <td>{{$item->details}}</td>
-                <td><img src="{{url('/uploads/medicine/'.$item->image)}}" style="border-radius:4px" width="100px" alt="medicine image"></td>
+                <td><img src="{{url('/uploads/medicine/'.$item->image)}}" style="border-radius:5px" width="50px" class="rounded mx-auto d-block" alt="medicine image"></td>
                 <td>
                     <a href="{{route('medicine.view', $item->id)}}"><i class="fa-solid fa-eye"></i></a>
                     <a href="{{route('medicine.edit', $item->id)}}"><i class="fas fa-edit"></i></a>

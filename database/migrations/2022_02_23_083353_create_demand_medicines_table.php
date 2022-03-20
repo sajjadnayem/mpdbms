@@ -17,6 +17,8 @@ class CreateDemandMedicinesTable extends Migration
             $table->id();
             $table->foreignId('demand_id');
             $table->foreignId('medicine_id');
+            $table->string('quantity');
+            
             $table->timestamps();
         });
     }

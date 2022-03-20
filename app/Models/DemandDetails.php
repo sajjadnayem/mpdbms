@@ -16,5 +16,6 @@ class DemandDetails extends Model
     {
         return $this->hasMany(DemandMedicine::class,'id','demandmedicine_id');
     }
+    
 
 }
