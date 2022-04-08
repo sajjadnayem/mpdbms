@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DemandController;
 use App\Http\Controllers\Admin\MachineController;
+use App\Http\Controllers\Admin\SchedulingController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -65,3 +66,10 @@ Route::get('/demand/delete/{demand_id}',[DemandController::class,'deleteDemand']
 Route::get('/demand/forgot',[DemandController::class,'createdemand'])->name('demand.forgot');
 Route::post('/store/demand', [DemandController::class, 'storeDemand'])->name('store.demand');
 Route::get('/view/demand/details/{demand_id}', [DemandController::class, 'demandDetails'])->name('demand.view');
+
+//for scheduling
+Route::get('/schedule', [SchedulingController::class, 'schedule'])->name('schedule');
+Route::get('/create/schedule/{demand_id}', [SchedulingController::class, 'createSchedule'])->name('schedule.create');
+Route::post('/store/schedule', [SchedulingController::class, 'storeSchedule'])->name('store.schedule');
+Route::get('/schedule/view/details/{demand_details_id}', [SchedulingController::class, 'printSchedule'])->name('schedule.print');
+

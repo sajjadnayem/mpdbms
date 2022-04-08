@@ -17,4 +17,9 @@ class MachineMedicine extends Model
         return $this->belongsTo(Medicine::class, 'medicine_id', 'id');
     }
 
+    public function machine()
+    {
+        return $this->belongsTo(Machine::class, 'machine_id', 'id');
+    }
+
 }

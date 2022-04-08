@@ -11,6 +11,11 @@
             <tr>
                 <td>{{$item->medicine->name}}</td>
                 <td>{{$item->quantity}}</td>
+                <td>
+                    <a href="{{route('schedule.create',$item->id)}}" class="btn btn-info">Create Schedule</a>
+                    <a href="{{route('schedule.print', $item->id)}}" class="btn btn-info">Print Schedule</a>
+                </td>
+                
             </tr>
             @endforeach
         </tbody>

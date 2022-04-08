@@ -17,6 +17,7 @@ class CreateMachineMedicineTable extends Migration
             $table->id();
             $table->foreignId('machine_id')->constrained('machines');
             $table->foreignId('medicine_id')->constrained('medicines');
+            $table->double('quantity');
             $table->timestamps();
         });
     }

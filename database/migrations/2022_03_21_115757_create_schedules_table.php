@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDemandsTable extends Migration
+class CreateSchedulesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,16 @@ class CreateDemandsTable extends Migration
      */
     public function up()
     {
-        Schema::create('demands', function (Blueprint $table) {
+        Schema::create('schedules', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            // $table->date('date');
             $table->date('from_date');
-            $table->date('to_date');
-            $table->string('note');
-            // $table->string('details');
-            // $table-> string('quantity');
+            $table->string('details');
+            $table->timestamp('time');
+            $table->string('machine_id');
+            // $table->string('medicine_id');
+            $table->foreignId('demand_details_id')->nullable();
+            $table->string('hour');
             $table->timestamps();
         });
     }
@@ -32,6 +34,6 @@ class CreateDemandsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('demands');
+        Schema::dropIfExists('schedules');
     }
 }

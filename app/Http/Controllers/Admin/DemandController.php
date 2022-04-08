@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Demand;
+use App\Models\Medicine;
+use App\Models\Schedule;
+use MongoDB\Driver\Session;
+use Illuminate\Http\Request;
 use App\Models\DemandDetails;
 use App\Models\DemandMedicine;
-use App\Models\Medicine;
+use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
-use Illuminate\Http\Request;
-use MongoDB\Driver\Session;
 
 class DemandController extends Controller
 {
@@ -76,12 +77,13 @@ class DemandController extends Controller
 
     public function storeDemand(Request $request)
     {
+        
         // dd($request->all(),session('cart'));
         $carts = session()->get('cart');
         // $madicine_name = json_encode($request->medicine_name);
         // dd($madicine_name);
         $demand = Demand::create([
-            'name'=>auth()->user()->name,
+            'user_id'=>auth()->user()->id,
             'from_date'=>$request->from_date,
             'to_date'=>$request->to_date,
             'note'=>$request->note,
@@ -103,5 +105,14 @@ class DemandController extends Controller
         $demand = DemandMedicine::with('medicine')->where('demand_id',$demand_id)->get();
         // dd($demand);
         return view('admin.pages.demand.demand_details', compact('demand'));
+    }
+    public function printSchedule()
+    {
+        // dd($schedule_id->all());
+        // $schedule= Schedule::find($schedule_id); // finding particular schedule
+        //  // dd($schedule);
+        // $demand = Demand::where('id',$schedule->demand_id)->first();
+        // // dd($demand);
+        // return view('admin.scheduling.scheduling_details',compact('schedule','demand'));
     }
 }

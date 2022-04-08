@@ -23,9 +23,11 @@ class MachineController extends Controller
    }
    public function StoreMachine(Request $request)
    {
-        //    dd($request->all());
+        // dd($request->all()); 
      $machine=Machine::create([
         'name'=>$request->name,
+        'machine_rpm'=>$request->machine_rpm,
+        'rpm_quantity'=>$request->rpm_quantity,
         'details'=>$request->details
        ]);
 
@@ -33,6 +35,7 @@ class MachineController extends Controller
             MachineMedicine::create([
                 'machine_id'=>$machine->id,
                 'medicine_id'=>$name,
+                'quantity'=>$request->quantity
             ]);
         }
         Toastr::success('Machine created successfully ','Success');

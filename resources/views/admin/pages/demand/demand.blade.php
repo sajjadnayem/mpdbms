@@ -19,7 +19,7 @@
         @foreach ($demand as $key=>$item)
         <tr>
             <th scope="row">{{$key+1}}</th>
-            <td>{{$item->name}}</td>
+            <td>{{$item->user_id}}</td>
             <td>{{$item->from_date}}</td>
             <td>{{$item->to_date}}</td>
             <td>{{$item->note}}</td>
@@ -31,7 +31,7 @@
             <td>{{$item->details}}</td>
             <td>{{$item->quantity}}</td> --}}
             <td>
-                <a href="{{route('demand.view', $item->id)}})}}"><i class="fa-solid fa-eye"></i></a>
+                <a href="{{route('demand.view', $item->id)}}"><i class="fa-solid fa-eye"></i></a>
                 <a href="#"><i class="fas fa-edit"></i></a>
                 <a href="#"><i class="fas fa-trash"></i></a>
             </td>

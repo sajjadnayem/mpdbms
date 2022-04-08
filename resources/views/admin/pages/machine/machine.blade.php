@@ -6,8 +6,10 @@
     <table class="table table-bordered">
         <thead>
             <th scope="col">ID</th>
-            <th scope="col">Medicine Name</th>
+            <th scope="col">Machine Name</th>
             <th scope="col">Assigned Medicine</th>
+            <th scope="col">Machine RPM</th>
+            <th scope="col">RPM Quantity</th>
             <th scope="col">Machine Details</th>
             <th>Action</th>
         </thead>
@@ -18,9 +20,11 @@
                 <td>{{$item->name}}</td>
                 <td>
                     @foreach ($item->medicine as $data)
-                        <span class="badge bg-info text-dark">{{$data->medicine->name}}</span>
+                        <span class="badge bg-info text-dark">{{$data->medicine->name}}- {{$data->quantity}}</span>
                     @endforeach
                 </td>
+                <td>{{$item->machine_rpm}}</td>
+                <td>{{$item->rpm_quantity}}</td>
                 <td>{{$item->details}}</td>
                 <td>
                     <a href="#"><i class="fas fa-edit"></i></a>

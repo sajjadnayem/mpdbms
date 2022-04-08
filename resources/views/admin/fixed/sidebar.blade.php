@@ -92,6 +92,12 @@
                     <span> Demand </span>
                 </a>
             </li>
+            <li class="side-nav-item">
+                <a href="{{route('schedule')}}" class="side-nav-link">
+                    <i class="uil-copy-alt"></i>
+                    <span>Schedule</span>
+                </a>
+            </li>
 
             <li class="side-nav-item">
                 <a href="apps-chat.html" class="side-nav-link">
