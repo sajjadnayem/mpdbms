@@ -3,7 +3,7 @@
 <h1>Medicine List</h1>
 <a href="{{route('medicine.create')}}" class="btn btn-primary">Create Medicine</a><br><br>
 <div>
-    <table class="table table-bordered">
+    <table id="dataTable" class="table table-bordered">
         <thead>
             <th scope="col">ID</th>
             <th scope="col">Medicine Name</th>

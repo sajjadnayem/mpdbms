@@ -2,15 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Demand;
 use App\Models\Generic;
+use App\Models\Machine;
 use App\Models\Category;
 use App\Models\Medicine;
+use App\Models\Schedule;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
 
 class AdminController extends Controller
 {
+    public function dashboard()
+    {
+        $medicine=Medicine::all();
+        $machine=Machine::all();
+        $demand=Demand::all();
+        $schedule=Schedule::all();
+        return view('admin.pages.dashboard.dashboard',compact('medicine', 'machine', 'demand', 'schedule'));
+    }
    public function medicine()
    {
        $medicine=Medicine::all();

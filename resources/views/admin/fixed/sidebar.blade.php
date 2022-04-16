@@ -27,10 +27,10 @@
             <li class="side-nav-title side-nav-item">Navigation</li>
 
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
-                    <i class="uil-home-alt"></i>
-                    <span class="badge bg-success float-end">4</span>
-                    <span> Dashboards </span>
+                <a  href="{{route('admin.dashboard')}}" class="side-nav-link">
+                    
+                    {{-- <span class="badge bg-success float-end">4</span> --}}
+                    <i class="uil-home-alt"></i> Dashboards
                 </a>
                 <div class="collapse" id="sidebarDashboards">
                     <ul class="side-nav-second-level">
@@ -99,8 +99,8 @@
                 </a>
             </li>
 
-            <li class="side-nav-item">
-                <a href="apps-chat.html" class="side-nav-link">
+            {{-- <li class="side-nav-item">
+                <a href="{{route('admin.dashboard')}}" class="side-nav-link">
                     <i class="uil-comments-alt"></i>
                     <span> Chat </span>
                 </a>
@@ -690,10 +690,10 @@
                     </ul>
                 </div>
             </li>
-        </ul>
+        </ul> --}}
 
         <!-- Help Box -->
-        <div class="help-box text-white text-center">
+        {{-- <div class="help-box text-white text-center">
             <a href="javascript: void(0);" class="float-end close-btn text-white">
                 <i class="mdi mdi-close"></i>
             </a>
@@ -701,10 +701,10 @@
             <h5 class="mt-3">Unlimited Access</h5>
             <p class="mb-3">Upgrade to plan to get access to unlimited reports</p>
             <a href="javascript: void(0);" class="btn btn-outline-light btn-sm">Upgrade</a>
-        </div>
+        </div> --}}
         <!-- end Help Box -->
         <!-- End Sidebar -->
-        <div class="clearfix"></div>
+        {{-- <div class="clearfix"></div> --}}
 
     </div>
     <!-- Sidebar -left -->

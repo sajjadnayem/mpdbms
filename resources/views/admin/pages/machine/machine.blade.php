@@ -3,7 +3,7 @@
 <h1>Machine List</h1>
 <a href="{{route('create.machine')}}" class="btn btn-primary">Create Machine</a><br><br>
 <div>
-    <table class="table table-bordered">
+    <table id="dataTable" class="table table-bordered">
         <thead>
             <th scope="col">ID</th>
             <th scope="col">Machine Name</th>

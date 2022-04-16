@@ -2,7 +2,7 @@
 @section('content')
 <h1>Demand List</h1>
 <a href="{{route('demand.create')}}" class="btn btn-primary">Create Demand</a><br><br>
-<table class="table table-bordered" style="width: 100%">
+<table id="dataTable" class="table table-striped" style="width:100%">
     <thead>
         <th scope="col">ID</th>
         <th scope="col">Created By</th>
@@ -39,6 +39,8 @@
         @endforeach
     </tbody>
 </table>
+
 @endsection
+
 
 

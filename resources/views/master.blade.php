@@ -21,8 +21,16 @@
         <!-- font awesome cdn-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+        {{-- <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.4/css/select.bootstrap5.min.css"> --}}
+
         <!-- toastr cdn -->
         <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
+        {{-- datatable css --}}
+        <link rel="stylesheet" href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+        
         <!-- close toastr -->
         <!--Cdn for multiselect -->
 
@@ -590,7 +598,7 @@
         <!-- END wrapper -->
 
         <!-- Right Sidebar -->
-        <div class="end-bar">
+        {{-- <div class="end-bar">
             <div class="rightbar-title">
                 <a href="javascript:void(0);" class="end-bar-toggle float-end">
                     <i class="dripicons-cross noti-icon"></i>
@@ -676,7 +684,7 @@
                 </div> <!-- end padding-->
 
             </div>
-        </div>
+        </div> --}}
 
         <div class="rightbar-overlay"></div>
         <!-- /End-bar -->
@@ -695,13 +703,20 @@
         <script src="{{url('backend/js/pages/demo.dashboard.js')}}"></script>
         <!-- end demo js-->
 
+        
         <!-- toastr -->
         <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
         <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 
         {!! Toastr::message() !!}
         <!-- end toastr -->
-
         <!--multi select-->
+        {{-- datatable script cdn --}}
+        <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+        <script>
+            $(document).ready( function () {
+            $('#dataTable').DataTable();
+        } );
+        </script>
     </body>
 </html>

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\MachineController;
 use App\Http\Controllers\Admin\SchedulingController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
+// use Barryvdh\DomPDF\Facade as PDF;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,4 +73,8 @@ Route::get('/schedule', [SchedulingController::class, 'schedule'])->name('schedu
 Route::get('/create/schedule/{demand_id}', [SchedulingController::class, 'createSchedule'])->name('schedule.create');
 Route::post('/store/schedule', [SchedulingController::class, 'storeSchedule'])->name('store.schedule');
 Route::get('/schedule/view/details/{demand_details_id}', [SchedulingController::class, 'printSchedule'])->name('schedule.print');
+Route::post('/schedule/search', [SchedulingController::class, 'search'])->name('schedule.search');
+Route::get('generate-pdf/{demand_details_id}', [SchedulingController::class, 'generatePdf'])->name('generate.pdf');
+// dashboard 
+Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 

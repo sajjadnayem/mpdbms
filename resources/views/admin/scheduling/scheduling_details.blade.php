@@ -1,8 +1,8 @@
 @extends('master')
 @section('content')
 
-
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+   
 <style>
     body{
     margin-top:20px;
@@ -137,7 +137,7 @@ hr {
                     <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
                     Print
                 </a>
-                <a class="btn bg-white btn-light mx-1px text-95" href="#" data-title="PDF">
+                <a class="btn bg-white btn-light mx-1px text-95" href="{{route('generate.pdf', $demand_details->id)}}" data-title="PDF">
                     <i class="mr-1 fa fa-file-pdf-o text-danger-m1 text-120 w-2"></i>
                     Export
                 </a>
@@ -163,10 +163,13 @@ hr {
                 <div class="row">
                     <div class="col-sm-6">
                         <div>
+                            <span  class="text-sm text-grey-m2 align-middle">Machine Name:{{$schedule[0]->machine->name}}  </span><br>
+                            <span class="text-600 text-110 text-blue align-middle">Medicine Name: {{$demand_details->medicine->name}}</span><br>
+                            <span class="text-600 text-110 text-blue align-middle">Total Demand: {{$demand_details->quantity}}</span>
+                        </div>
+                        {{-- <div>
                             <span class="text-sm text-grey-m2 align-middle">To:</span>
-                            @foreach ($schedule as $item)
-                            <span class="text-600 text-110 text-blue align-middle">{{$item->user_id}}</span>
-                            @endforeach
+                            <span class="text-600 text-110 text-blue align-middle"></span>
                         </div>
                         <div class="text-grey-m2">
                             <div class="my-1">
@@ -176,7 +179,7 @@ hr {
                                 State, Country
                             </div>
                             <div class="my-1"><i class="fa fa-phone fa-flip-horizontal text-secondary"></i> <b class="text-600">111-111-111</b></div>
-                        </div>
+                        </div> --}}
                     </div>
                     <!-- /.col -->
 
@@ -184,57 +187,66 @@ hr {
                         <hr class="d-sm-none" />
                         <div class="text-grey-m2">
                             <div class="mt-1 mb-2 text-secondary-m1 text-600 text-125">
-                                Invoice
+                                
                             </div>
 
-                            <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">ID:</span> #111-222</div>
+                            {{-- <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">ID:</span> #111-222</div>
 
-                            @foreach ($schedule as $item)
-                            <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Issue Date:</span>{{$item->from_date}}</div>
-                            @endforeach
+                            <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Issue Date:</span></div>
 
-                            <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Status:</span> <span class="badge badge-warning badge-pill px-25">Unpaid</span></div>
+                            <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Status:</span> <span class="badge badge-warning badge-pill px-25">Unpaid</span></div> --}}
                         </div>
                     </div>
                     <!-- /.col -->
                 </div>
-
+               
                 <table class="table table-striped">
                     <thead class="bgc-default-tp1">
                       <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">Machine Name</th>
-                        <th scope="col">Machine Details</th>
-                        <th scope="col">TimeStrap</th>
+                        {{-- <th scope="col">Machine Name</th> --}}
+                        <th scope="col">Date</th>
                         <th scope="col">Hour</th>
-                        <th scope="col">Assigned Medicine</th>
                         <th scope="col">Quantity</th>
                       </tr>
                     </thead>
                     <tbody>
+                      @php
+                          $totalQuantity=0;
+                      @endphp
                       @foreach ($schedule as $item)
+
+                      @php
+                          $totalQuantity+=$item->hour*60*$schedule[0]->machine->machine_rpm*$time->quantity;
+                      @endphp
                       <tr>
                         <th scope="row">1</th>
-                        <td>{{$item->machine->name}}</td>
-                        <td>{{$item->details}}</td>
-                        <td>{{$item->time}}</td>
+                        {{-- <td>{{$item->machine->name}}</td> --}}
+                        <td>{{$item->schedule_date}}</td>
                         <td>{{$item->hour}}</td>
-                        {{-- <td></td> --}}
-                        {{-- <td>{{$machine->quantity}}</td> --}}
+                        <td>{{$item->hour*60*$schedule[0]->machine->machine_rpm*$time->quantity}}</td>
                       </tr>
                       @endforeach
+                      <tr>
+                          <td colspan="3">Others</td>
+                          <td >{{$demand_details->quantity-$totalQuantity}}</td>
+                      </tr>
                     </tbody>
                   </table>
                
                     <hr />
 
                     <div>
-                        <span class="text-secondary-d1 text-105">Thank you for your business</span>
-                        <a href="#" class="btn btn-info btn-bold px-4 float-right mt-3 mt-lg-0">Pay Now</a>
+                        <span class="text-secondary-d1 text-105">Thank you for your support</span>
+                        {{-- <a href="#" class="btn btn-info btn-bold px-4 float-right mt-3 mt-lg-0">Pay Now</a> --}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+</body>
+</html>
+
+
 @endsection

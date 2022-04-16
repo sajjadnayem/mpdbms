@@ -102,9 +102,17 @@ class DemandController extends Controller
     }
     public function demandDetails($demand_id)
     {
+        // hiding the button 
+        $status = 'no';
+        $demand_details = DemandMedicine::where('demand_id',$demand_id)-> first();
+        $schedule = Schedule::where('demand_details_id',$demand_details->id)->get();
+        // if(!$schedule->isEmpty()){
+        //     $status = 'yes';
+        // }
         $demand = DemandMedicine::with('medicine')->where('demand_id',$demand_id)->get();
         // dd($demand);
-        return view('admin.pages.demand.demand_details', compact('demand'));
+        
+        return view('admin.pages.demand.demand_details', compact('demand','status'));
     }
     public function printSchedule()
     {

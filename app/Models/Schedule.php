@@ -15,4 +15,8 @@ class Schedule extends Model
     {
         return $this->belongsTo(Machine::class,'machine_id','id');
     }
+    public function demandDetails()
+    {
+        return $this->belongsTo(DemandMedicine::class, 'demand_medicine_id', 'id');
+    }
 }

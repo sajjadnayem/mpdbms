@@ -27,7 +27,7 @@
 @endif
 <a href="{{route('generic.create')}}" class="btn btn-primary">Create Generic Name</a><br><br>
 <div>
-    <table class="table table-bordered">
+    <table id="dataTable" class="table table-bordered">
         <thead>
             <tr>
                 <th scope="col">ID</th>
