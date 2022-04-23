@@ -11,6 +11,7 @@ use App\Models\DemandDetails;
 use App\Models\DemandMedicine;
 use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\Session as FacadesSession;
 
 class DemandController extends Controller
 {
@@ -97,22 +98,21 @@ class DemandController extends Controller
             ]);
         }
         Toastr::success('Demand created successfully', 'demand');
+        Session()->forget('cart');
         return redirect()->route('demand');
 
     }
     public function demandDetails($demand_id)
     {
         // hiding the button 
-        $status = 'no';
-        $demand_details = DemandMedicine::where('demand_id',$demand_id)-> first();
-        $schedule = Schedule::where('demand_details_id',$demand_details->id)->get();
-        // if(!$schedule->isEmpty()){
-        //     $status = 'yes';
-        // }
-        $demand = DemandMedicine::with('medicine')->where('demand_id',$demand_id)->get();
-        // dd($demand);
         
-        return view('admin.pages.demand.demand_details', compact('demand','status'));
+      
+        $demand_details = DemandMedicine::where('demand_id',$demand_id)-> first();
+        
+        $demand = DemandMedicine::with('medicine', 'UserDetails')->where('demand_id',$demand_id)->get();
+        dd($demand);
+        
+        return view('admin.pages.demand.demand_details', compact('demand'));
     }
     public function printSchedule()
     {
@@ -122,5 +122,10 @@ class DemandController extends Controller
         // $demand = Demand::where('id',$schedule->demand_id)->first();
         // // dd($demand);
         // return view('admin.scheduling.scheduling_details',compact('schedule','demand'));
+    }
+    public function deleteDemandDetails($demand_id)
+    {
+        Demand::find($demand_id)->delete();
+        return redirect()->back()->with (Toastr::warning('Demand has been deleted:)','Warning'));
     }
 }

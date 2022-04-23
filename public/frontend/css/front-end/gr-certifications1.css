@@ -1,0 +1,52 @@
+.inter-product-list {
+    padding-top: 100px;
+}
+
+.header-hero-business {
+    background-image: url(../../images/international-business/business-bg.jpg) !important;
+    height: 230px;
+    /*margin-top: 80px;*/
+    background-size: cover;
+}
+
+.header-hero-business .content-right {
+    text-align: right;
+}
+
+.certifications-1 {
+    padding-bottom: 50px;
+}
+
+.certifications-1 .certificate-title {
+    font-size: 28px;
+    font-weight: 700;
+    /*color: #787878;*/
+    padding: 38px 0;
+}
+
+.single-certificate h5 {
+    font-size: 16px;
+    text-transform: uppercase;
+    padding-top: 29px;
+}
+
+.single-certificate {
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding: 20px 50px;
+    margin-bottom: 30px;
+    min-height: 290px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content h5 {
+    text-transform: uppercase;
+}
+.single-certificate img {
+    width: 100%;
+}
+/*
+.single-certificate .single-img{
+    height: 187px;
+}*/

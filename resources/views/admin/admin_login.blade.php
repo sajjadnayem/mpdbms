@@ -55,7 +55,13 @@
                     <div id="login-box" class="col-md-12">
                         <form id="login-form" class="form" action="{{route('admin.dologin')}}" method="post">
                             @csrf
-                            <h3 class="text-center text-info">Admin Login</h3>
+                            <h3 class="text-center text-info">Login Here</h3>
+                             {{-- @if($errors->any()) 
+   
+                        @php
+                          toastr()->error(implode(' ', $errors->all()));
+                        @endphp
+                  @endif --}}
                             @if(session()->has('error'))
                             <p class="alert alert-danger">
                                 {{session()->get('error')}}
@@ -76,7 +82,16 @@
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success">Login</button>
                              </div>
+                             {{-- <div class="form-group">
+                                <a href="{{route('user.create')}}" class="btn btn-success">SignUp</a>
+                             </div> --}}
                         </form>
+                        @if($errors->any()) 
+   
+                        @php
+                          toastr()->error(implode(' ', $errors->all()));
+                        @endphp
+                  @endif
                     </div>
                 </div>
             </div>

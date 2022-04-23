@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\User;
+use App\Mail\TestMail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -16,7 +20,9 @@ class UserController extends Controller
     {
         $userInfo=$request->except('_token');
         if(Auth::attempt($userInfo)){
-            return redirect()->route('admin.master')->with('message', 'Login successful');
+            return redirect()->route('admin.dashboard')->with(Toastr::success('Login Sueessful-Welcome to admin panel)','Success'));
+            ;
+            // ('message', 'Login successful');
         }
         return redirect()->back()->with('error', 'Invalid user credentials');
     }
@@ -25,5 +31,34 @@ class UserController extends Controller
         session()->forget('cart');
         Auth::logout();
         return redirect()->route('admin.login')->with('message', 'Logging out');
+    }
+    public function user()
+    {
+        return view('admin.pages.user.user');
+    }
+    public function createUser()
+    {
+        return view('admin.pages.user.create_user');
+    }
+    public function storeUser(Request $request)
+    {
+        // dd($request->all());
+     $password=rand();
+        User::create([
+                'name'=>$request->name,
+                'email'=>$request->email, 
+                'address'=>$request->address,
+                'phone_number'=>$request->phone_number,
+                'email_verified_at'=>$request->email_verified_at,
+                'password'=>bcrypt($password),
+        ]);
+        $details = [
+            'title' => 'Mail from MPDBMS admin',
+            'body' => 'This is for testing mail using gmail',
+            'credntials'=>'Email:'.$request->email.' and Password:'.$password
+        ];
+        Mail::to($request->email)->send(new TestMail($details));
+        Toastr::success('User Created successfully:)','Success');
+        return redirect()->route('user');
     }
 }

@@ -33,7 +33,9 @@
             <td>
                 <a href="{{route('demand.view', $item->id)}}"><i class="fa-solid fa-eye"></i></a>
                 <a href="#"><i class="fas fa-edit"></i></a>
-                <a href="#"><i class="fas fa-trash"></i></a>
+                @if (auth()->user()->role=="admin")
+                <a href="{{route('demand.details.delete', $item->id)}}"><i class="fas fa-trash"></i></a>
+                @endif
             </td>
         </tr>
         @endforeach

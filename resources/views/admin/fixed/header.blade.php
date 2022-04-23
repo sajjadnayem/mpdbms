@@ -195,8 +195,8 @@
                     <img src="{{url('backend/images/users/avatar-1.jpg')}}" alt="user-image" class="rounded-circle">
                 </span>
                 <span>
-                    <span class="account-user-name">Dominic Keller</span>
-                    <span class="account-position">Founder</span>
+                    <span class="account-user-name">{{auth()->user()->name}}</span>
+                    <span class="account-position">{{auth()->user()->role}}</span>
                 </span>
             </a>
             <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown">

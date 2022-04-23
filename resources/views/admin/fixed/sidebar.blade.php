@@ -25,10 +25,11 @@
         <ul class="side-nav">
 
             <li class="side-nav-title side-nav-item">Navigation</li>
+            @if (auth()->user()->role == "admin")
 
             <li class="side-nav-item">
-                <a  href="{{route('admin.dashboard')}}" class="side-nav-link">
-                    
+                <a  href="" class="side-nav-link">
+                    {{-- {{route('admin.dashboard')}} --}}
                     {{-- <span class="badge bg-success float-end">4</span> --}}
                     <i class="uil-home-alt"></i> Dashboards
                 </a>
@@ -98,6 +99,28 @@
                     <span>Schedule</span>
                 </a>
             </li>
+            <li class="side-nav-item">
+                <a href="{{route('user')}}" class="side-nav-link">
+                    <i class="uil-copy-alt"></i>
+                    <span>User</span>
+                </a>
+            </li>
+            @endif
+
+            @if (auth()->user()->role == "user")
+                <li class="side-nav-item">
+                    <a href="{{route('demand')}}" class="side-nav-link">
+                        <i class="uil-copy-alt"></i>
+                        <span> Demand </span>
+                    </a>
+                </li>
+                <li class="side-nav-item">
+                    <a href="{{route('schedule')}}" class="side-nav-link">
+                        <i class="uil-copy-alt"></i>
+                        <span>Schedule</span>
+                    </a>
+                </li>
+            @endif
 
             {{-- <li class="side-nav-item">
                 <a href="{{route('admin.dashboard')}}" class="side-nav-link">

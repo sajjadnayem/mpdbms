@@ -1,0 +1,76 @@
+.inter-product-list {
+    padding-top: 100px;
+}
+
+.header-hero-business {
+    background-image: url(../../images/international-business/business-bg.jpg) !important;
+    height: 230px;
+    /*margin-top: 80px;*/
+    background-size: cover;
+}
+
+.header-hero-business .content-right {
+    text-align: right;
+}
+
+/* grade api */
+.grade-api {
+    padding-top: 50px;
+}
+
+.grade-api .grade-content h5 {
+    font-weight: 700;
+    font-size: 28px;
+    /*color: #787878;*/
+}
+
+.grade-api .grade-content p {
+    font-size: 16px;
+    /*color: #787878;*/
+    padding: 19px 0 8px 0;
+    text-align: justify;
+}
+
+/* advantage of api */
+.grade-advantace-content {
+    padding: 10px 0 30px 0;
+}
+.grade-advantace-content h5{
+    font-size: 20px;
+    font-weight: 700;
+    /*color: #787878;*/
+}
+.grade-advantace-content ul{
+    padding-left: 23px;
+}
+.grade-advantace-content ul li{
+    /*color: #787878;*/
+    list-style:decimal;
+    padding: 9px 0px 0px 9px;
+}
+
+/* export-operation1 */
+
+.export-operation1 {
+    padding: 25px 0 80px 0;
+}
+
+.export-operation1 .export-list {
+    list-style: none;
+    padding: 0;
+}
+
+.export-operation1 .export-list li {
+    padding: 28px 16px;
+    border: 1px solid #e1e1e1;
+    border-left: 4px solid #fb5a43;
+    margin: 10px 0;
+    box-shadow: 0 0 2px #00000033;
+}
+
+section.export-operation1 h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #787878;
+    padding: 41px 0 38px 0;
+}

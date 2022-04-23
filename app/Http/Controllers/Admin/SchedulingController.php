@@ -6,15 +6,16 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Demand;
 use App\Models\Machine;
-use App\Models\Schedule;
+use App\Models\Medicine;
 
+use App\Models\Schedule;
 use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 use App\Models\DemandDetails;
 use App\Models\DemandMedicine;
 use App\Models\MachineMedicine;
 use App\Http\Controllers\Controller;
-use App\Models\Medicine;
+use Brian2694\Toastr\Facades\Toastr;
 use Barryvdh\DomPDF\PDF as DomPDFPDF;
 
 class SchedulingController extends Controller
@@ -190,6 +191,11 @@ class SchedulingController extends Controller
             return view('admin.scheduling.scheduling',compact('results','status'));
                         
         }
+    }
+    public function deleteSchedule($schedule_id)
+    {
+        Schedule::find($schedule_id)->delete();
+        return redirect()->back()->with (Toastr::warning('Schedule has been deleted:)','Warning'));
     }
 }
 

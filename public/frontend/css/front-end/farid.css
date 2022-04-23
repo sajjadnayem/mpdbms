@@ -1,0 +1,363 @@
+.mission {
+    padding: 20px;
+}
+
+.mission .comn-title-content {
+    display: flex;
+    background: #eb0f3c;
+    border-radius: 5px;
+    box-shadow: 0 3px 5px #00000054;
+    margin-bottom: 15px;
+}
+
+.comn-title-content .comn-img {
+    padding: 10px;
+}
+
+.mission-img.comn-img img {
+    width: 52px;
+    margin-left: 10px;
+    background: #ffffff47;
+    border-radius: 50px;
+}
+
+.comn-title-content .comn-title h4 {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 30px;
+    line-height: 72px;
+    margin: 0;
+    padding-left: 10px;
+}
+
+.comn-inner-content p {
+    font-size: 20x;
+    color: #575757;
+}
+
+.flex-col-end {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 30px;
+}
+
+
+.flex-col-start {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 30px;
+}
+
+.vission-area {
+    padding: 50px 0 40px 0;
+}
+
+
+.core-value {
+    padding-top: 30px;
+}
+
+.core-value img {
+    width: 42px;
+}
+
+.core-value .title {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #787878;
+    border-bottom: 1px solid red;
+    line-height: 47px;
+    margin-bottom: 20px;
+}
+
+.core-value .desc {
+    text-align: right;
+    width: 80%;
+    margin-bottom: 30px;
+}
+
+
+.footer-up {
+    background-image: url(../../images/middle.png);
+    background-size: cover;
+    position: relative;
+    padding: 80px 0 75px 0;
+    background-position: center;
+}
+
+.footer-up .overly {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(254, 81, 57, 0.5);
+    top: 0;
+}
+
+.footer-up .innter-content h5 {
+    font-size: 70px;
+    padding: 0 0 25px 0px;
+    color: #fff;
+    font-weight: 300;
+    line-height: 88px;
+    letter-spacing: 5px;
+}
+
+.video {
+    text-align: center;
+}
+
+.video-icon {
+    display: inline-block;
+    width: 95px;
+    height: 95px;
+    background: #fff;
+    color: rgb(247, 106, 95);
+    border-radius: 50%;
+    font-size: 36px;
+    padding: 16px 37px;
+    cursor: pointer;
+}
+
+.border-active {
+    border-bottom: 3px solid #fe5139;
+}
+
+/* mission end */
+
+.meet-chairman {
+    margin: 57px 0 172px 0;
+    position: relative;
+}
+
+.chairman-content {
+    padding-left: 24px;
+}
+
+.meet-chairman:after {
+    content: " ";
+    position: absolute;
+    background: url(../../images/chairman/pattern.jpg);
+    left: 0;
+    bottom: -16%;
+    width: 71%;
+    height: 33%;
+    background-size: cover;
+    z-index: -1;
+}
+
+.chairman-content .ch-mess {
+    /*font-size: 34px;*/
+    font-size: 1.8em;
+    color: #787878;
+    font-weight: 400;
+    text-transform: unset;
+}
+
+.chairman-content .ch-self {
+    /*font-size: 50px;*/
+    font-size: 2.5em;
+    color: #787878;
+    font-weight: 400;
+    padding-bottom: 10px;
+}
+
+.chairman-content .ch-content {
+    /*font-size: 22px;*/
+    font-size: 1em;
+    color: #787878;
+    text-align: justify;
+}
+
+.meet-chairman-middle .content-1 {
+    background: #DBDBDB;
+    padding: 29px 23px;
+    position: relative;
+    border-left: 12px solid #DE5246;
+}
+
+.meet-chairman-middle .content-1 p {
+    margin: 0;
+    /*font-size: 21px;*/
+    font-size: 1em;
+    color: #787878;
+}
+.meet-chairman-middle {
+    text-align: justify;
+}
+
+.content-other {
+    /*font-size: 20px;*/
+    font-size: 1em;
+    padding-left: 38px;
+    color: #787878;
+}
+
+.content-other .content-2 {
+    padding: 20px 0 0 0;
+}
+
+.meet-chairnam-slider {
+    margin: 40px 0 117px 0 !important;
+}
+
+.meet-chairnam-slider .carousel-indicators {
+    bottom: -10%;
+}
+
+.meet-chairnam-slider .carousel-indicators li {
+    cursor: pointer;
+}
+
+.chairman-img img {
+    width: 100%;
+}
+
+.chairman-img {
+    box-shadow: 0px 6px 11px #707070;
+}
+
+.carousel-indicators-chairman li {
+    border-radius: 30px;
+    background: #707070 !important;
+    border: 0;
+    opacity: 1;
+}
+
+.carousel-indicators-chairman .active {
+    background: #fe5139 !important;
+}
+
+/* history */
+.history2 {
+    padding: 57px 0 20px 0;
+}
+
+.row.custom-border:after {
+    position: relative;
+}
+
+.row.custom-border:after {
+    content: "";
+    background: #565252;
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    left: 23%;
+    border-radius: 50%;
+}
+
+.custom-nav .nav-link {
+    color: rgb(24, 23, 23);
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.custom-nav a:after {
+    position: absolute;
+    content: "";
+    background: #000;
+    width: 8px;
+    height: 8px;
+    right: 0px;
+    z-index: 99999;
+    top: 35%;
+}
+
+.custom-nav .active {
+    color: #000 !important;
+    font-weight: 700;
+    background-color: rgba(0, 0, 0, 0.0) !important;
+}
+
+.custom-nav .active:after {
+    width: 14px;
+    height: 14px;
+    right: -4px;
+    border-radius: 0%;
+}
+
+.custom-tab-content {
+    padding: 0px 0px 0 74px;
+}
+
+.custom-tab-content h4 {
+    font-size: 37px;
+    padding-bottom: 17px;
+}
+
+
+/* product */
+.product {
+    margin: 57px 0px;
+}
+
+.search-container .navbar {
+    padding: 0;
+}
+
+.search-container .form-inline {
+    width: 100%;
+    position: relative;
+}
+
+.search-container .form-control {
+    width: 100%;
+}
+
+.search-container .form-control.mr-sm-2 {
+    margin-right: 0 !important;
+}
+
+.search-container .btn-outline-success {
+    position: absolute;
+    right: 0;
+    border: 0;
+    color: #8e8b8b;
+}
+
+.trade-name .trade-arrow {
+    background: #FE5139;
+    color: #fff;
+    font-size: 11px;
+    width: 20px;
+    display: inline-block;
+    height: 20px;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+.trade-name {
+    color: #808080;
+    font-size: 17px;
+    padding-top: 23px;
+}
+
+.trade-name p {
+    margin-bottom: 2px;
+}
+
+.search-container h5 {
+    font-size: 24px;
+    color: #7A7676;
+    font-weight: 500;
+    padding-bottom: 7px;
+}
+
+.search-container {
+    box-shadow: 0px 3px 6px 0px #b7b0b0;
+    padding: 26px 13px 38px 13px;
+    position: relative;
+    margin-top: 5px;
+}
+
+.search-container:after {
+    position: absolute;
+    content: "";
+    background: #FE5139;
+    height: 4px;
+    width: 100%;
+    left: 0;
+    top: -9px;
+}

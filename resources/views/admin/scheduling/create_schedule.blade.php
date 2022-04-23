@@ -4,8 +4,6 @@
     <form action="{{route('store.schedule')}}" method="POST">
         @csrf
         <input name="demand_details_id" type="text" hidden value="{{$demandDetails->id}}">
-
-
         <div class="form-group">
           <label for="name">Schedule Date</label>
           <input type="date" class="form-control" id="name" name="schedule_date" placeholder="Enter any note">
@@ -15,10 +13,7 @@
             <label for="name">Details</label>
             <input type="text" class="form-control" id="name" name="details" placeholder="Enter any note">
           </div>
-          {{-- <div class="form-group">
-            <label for="name">Starting Time</label>
-            <input type="date" class="form-control" id="name" name="starting_time" placeholder="Enter Scheduled Time">
-          </div> --}}
+          
           <div class="form-group">
             <label for="Assigned Machine">Assigned Machine</label>
             <select name="selecteMachine" class="form-control" id="">

@@ -1,12 +1,14 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\DemandController;
-use App\Http\Controllers\Admin\MachineController;
-use App\Http\Controllers\Admin\SchedulingController;
-use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\DemandController;
+use App\Http\Controllers\website\HomeController;
+use App\Http\Controllers\Admin\MachineController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\MailController;
+use App\Http\Controllers\Admin\SchedulingController;
 // use Barryvdh\DomPDF\Facade as PDF;
 
 /*
@@ -20,13 +22,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', [HomeController::class, 'Home'])->name('manage.home');
+Route::group(['prefix'=> 'user'], function(){
+    Route::get('/', function(){
+        return view('website.master');
+    })->name('website');
+});
+
+
+
+
+
 Route::get('/admin/login', [UserController::class, 'login'])->name('admin.login');
 Route::post('/admin/dologin', [UserController::class, 'dologin'])->name('admin.dologin');
-Route::get('/logout', [UserController::class, 'logout'])->name('admin.logout');
 
-Route::get('/', function () {
-    return view('master');
-})->name('admin.master');
+
+
+Route::group(['prefix'=> 'admin', 'middleware'=>'auth'], function(){
+    // Route::get('/admin.dashboard', function(){
+    //     return view('admin.pages.dashboard.dashboard');
+    // })->name('admin.master');
+
+Route::get('/logout', [UserController::class, 'logout'])->name('admin.logout');
+// Route::get('/', function () {
+//     return view('master');
+// })->name('admin.master');
 // Route::get('/admin/login', [AdminController::class, 'login']);
 //for category controller
 Route::get('/category', [CategoryController::class, 'category'])->name('category');
@@ -67,6 +87,7 @@ Route::get('/demand/delete/{demand_id}',[DemandController::class,'deleteDemand']
 Route::get('/demand/forgot',[DemandController::class,'createdemand'])->name('demand.forgot');
 Route::post('/store/demand', [DemandController::class, 'storeDemand'])->name('store.demand');
 Route::get('/view/demand/details/{demand_id}', [DemandController::class, 'demandDetails'])->name('demand.view');
+Route::get('/demand/details/delete/{demand_id}',[DemandController::class, 'deleteDemandDetails'])->name('demand.details.delete');
 
 //for scheduling
 Route::get('/schedule', [SchedulingController::class, 'schedule'])->name('schedule');
@@ -75,6 +96,44 @@ Route::post('/store/schedule', [SchedulingController::class, 'storeSchedule'])->
 Route::get('/schedule/view/details/{demand_details_id}', [SchedulingController::class, 'printSchedule'])->name('schedule.print');
 Route::post('/schedule/search', [SchedulingController::class, 'search'])->name('schedule.search');
 Route::get('generate-pdf/{demand_details_id}', [SchedulingController::class, 'generatePdf'])->name('generate.pdf');
+Route::get('/edit/schedule/{schedule_id}', [SchedulingController::class, 'editSchedule'])->name('schedule.edit');
+Route::get('/delete/schedule/{schedule_id}', [SchedulingController::class, 'deleteSchedule'])->name('schedule.delete');
+
 // dashboard 
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
+// for sending email
+Route::get('/send-email', [MailController::class, 'sendEmail']);  
+
+//for creating user
+Route::get('/user', [UserController::class, 'user'])->name('user');
+Route::get('/user/create', [UserController::class, 'createUser'])->name('user.create');
+Route::post('/user/store', [UserController::class, 'storeUser'])->name('user.store');
+});
+
+
+
+
+Route::group(['prefix'=> 'user', 'middleware'=>['user', 'auth']], function(){
+//for demand
+Route::get('/demand', [DemandController::class, 'demand'])->name('demand');
+Route::get('/create/demand', [DemandController::class, 'createDemand'])->name('demand.create');
+Route::get('/add/demand',[DemandController::class,'demandAdd'])->name('demand.add');
+Route::post('demand/update/{demand_id}',[DemandController::class,'updateDemand'])->name('demand.update');
+Route::get('/demand/delete/{demand_id}',[DemandController::class,'deleteDemand'])->name('demand.delete');
+Route::get('/demand/forgot',[DemandController::class,'createdemand'])->name('demand.forgot');
+Route::post('/store/demand', [DemandController::class, 'storeDemand'])->name('store.demand');
+Route::get('/view/demand/details/{demand_id}', [DemandController::class, 'demandDetails'])->name('demand.view');
+
+//for scheduling
+Route::get('/schedule', [SchedulingController::class, 'schedule'])->name('schedule');
+Route::get('/create/schedule/{demand_id}', [SchedulingController::class, 'createSchedule'])->name('schedule.create');
+Route::post('/store/schedule', [SchedulingController::class, 'storeSchedule'])->name('store.schedule');
+Route::get('/schedule/view/details/{demand_details_id}', [SchedulingController::class, 'printSchedule'])->name('schedule.print');
+Route::post('/schedule/search', [SchedulingController::class, 'search'])->name('schedule.search');
+Route::get('generate-pdf/{demand_details_id}', [SchedulingController::class, 'generatePdf'])->name('generate.pdf');
+
+// for sending mail
+// Route::get('/send-email', [MailController::class, 'sendEmail']);  
+}); 
+ 

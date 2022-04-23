@@ -1,0 +1,222 @@
+.mission{
+    padding: 80px;
+}
+
+.mission .comn-title-content{
+    display: flex;
+    padding-bottom: 22px;   
+}
+.comn-title-content .comn-img {
+    background: #AAA6A6;
+    width: 120px;
+    height: 120px;
+    padding: 12px 11px;
+}
+
+.comn-title-content .comn-title h4 {
+    color: #787878;
+    text-transform: uppercase;
+    font-size: 70px;
+    padding-left: 20px;
+    line-height: 106px;
+}
+.comn-inner-content p{
+    font-size: 20x;
+    color: #575757;
+}
+
+.vission-area {
+    padding: 100px 0 40px 0;
+}
+
+
+.footer-up{
+    background-image: url(../../images/middle.png);
+    background-size: cover;
+    position: relative;
+    padding: 80px 0 75px 0;
+    background-position: center;
+}
+
+.footer-up .overly {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(254,81,57,0.5);
+    top: 0;
+}
+
+.footer-up .innter-content h5 {
+    font-size: 70px;
+    padding: 0 150px 13px 0px;
+    color: #fff;
+    font-weight: 300;
+    line-height: 88px;
+    letter-spacing: 5px;
+}
+
+.video{
+    text-align: center;
+}
+.video-icon {
+    display: inline-block;
+    width: 95px;
+    height: 95px;
+    background: #fff;
+    color: rgb(247,106,95);
+    border-radius: 50%;
+    font-size: 36px;
+    padding: 16px 37px;
+    cursor: pointer;
+}
+
+.border-active{
+    border-bottom: 3px solid #fe5139;
+}
+
+/* mission end */
+
+/* meet chairman */
+.meet-chairman{
+    margin: 57px 0 172px 0;
+    position: relative;
+}
+.chairman-content {
+    padding-left: 24px;
+}
+.meet-chairman:after{
+    content: " ";
+    position: absolute;
+    background: url(../../images/chairman/pattern.jpg);
+    left: 0;
+    bottom: -16%;
+    width: 71%;
+    height: 33%;
+    background-size: cover;
+    z-index: -1;
+}
+
+.chairman-content .ch-mess {
+    font-size: 34px;
+    color: #787878;
+    font-weight: 400;
+    text-transform: unset;
+    line-height: 14px;
+}
+
+.chairman-content .ch-self {
+    font-size: 50px;
+    color: #787878;
+    font-weight: 400;
+    padding-bottom: 10px;
+}
+
+.chairman-content .ch-content {
+    font-size: 22px;
+    color: #787878;
+    line-height: 27px;
+}
+
+.meet-chairman-middle .content-1 {
+    background: #DBDBDB;
+    padding: 29px 23px;
+    position: relative;
+    border-left: 12px solid #DE5246;
+}
+
+.meet-chairman-middle .content-1 p {
+    margin: 0;
+    font-size: 21px;
+    color: #787878;
+}
+.content-other {
+    font-size: 20px;
+    padding-left: 38px;
+    color: #787878;
+}
+.content-other .content-2{
+    padding: 20px 0 0 0;
+}
+
+.meet-chairnam-slider{
+    margin: 40px 0 117px 0 !important;
+}
+.meet-chairnam-slider .carousel-indicators{
+    bottom: -10%;
+}
+.meet-chairnam-slider .carousel-indicators li{
+    cursor: pointer;
+}
+
+.chairman-img img {
+    width: 100%;
+}
+
+.chairman-img {
+    box-shadow: 0px 6px 11px #707070;
+}
+
+.carousel-indicators-chairman li{
+    border-radius: 30px;
+    background: #707070 !important;
+    border: 0;
+    opacity: 1;
+}
+.carousel-indicators-chairman .active{
+    background: #fe5139 !important;
+}
+
+/* history */
+.history2{
+    padding: 57px 0 20px 0;
+}
+.row.custom-border:after {
+    position: relative;
+}
+.row.custom-border:after {
+    content: "";
+    background: #565252;
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    left: 23%;
+    border-radius: 50%;
+}
+.custom-nav .nav-link{
+    color: rgb(24, 23, 23);
+    position: relative;
+    margin-bottom: 10px;
+}
+.custom-nav a:after {
+    position: absolute;
+    content: "";
+    background: #000;
+    width: 8px;
+    height: 8px;
+    right: 0px;
+    z-index: 99999;
+    top: 35%;
+}
+.custom-nav .active {
+    color: #000 !important;
+    font-weight: 700;
+    background-color: rgba(0,0,0,0.0) !important;
+}
+
+.custom-nav .active:after{
+    width: 14px;
+    height: 14px;
+    right: -4px;
+    border-radius: 0%;
+}
+
+.custom-tab-content {
+    padding: 0px 0px 0 74px;
+}
+
+.custom-tab-content h4 {
+    font-size: 37px;
+    padding-bottom: 17px;
+}
+
+

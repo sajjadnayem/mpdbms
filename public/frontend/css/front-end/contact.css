@@ -1,0 +1,167 @@
+.google-map {
+    height: 620px;
+    width: 100%;
+    margin-top: 15px;
+    background: url(../../images/contact/map.png);
+    background-size: cover;
+}
+
+.map-area {
+    position: relative;
+    /*margin-top: 80px;*/
+}
+
+.contact-us-content {
+    top: -180px;
+    position: relative;
+    background: #fff;
+    padding: 18px 29px;
+    border-left: 6px solid #FF522A;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+.contact-us-content h5 {
+    font-size: 28px;
+    font-weight: 700;
+    padding-bottom: 5px;
+    color: #787878;
+}
+
+.contact-us-content p {
+    font-size: 16px;
+    color: #787878;
+}
+
+/* contact us */
+.contact-us {}
+
+.contact-logo {
+    padding-top: 25px;
+}
+
+.contact-row {
+    background: #fff;
+    transform: translateY(-150px);
+}
+
+.contact-us .contact-left {
+    background: #064277;
+    padding: 38px 24px 38px 24px;
+    color: #fff;
+}
+
+
+.contact-us .contact-left-inner {
+    display: flex;
+}
+
+.contact-us .office-content h5 {
+    font-size: 20px;
+    font-weight: 700;
+    border-bottom: 1px solid #fff;
+    display: inline-block;
+    padding-bottom: 8px;
+}
+
+.contact-us .office-content {
+    padding-left: 15px;
+}
+
+.contact-us .office-content .off-address {
+    font-size: 16px;
+    line-height: 22px;
+    padding-top: 5px;
+}
+
+.contact-us .phone-content,
+.contact-us .fax-content {
+    display: flex;
+    text-align: center;
+}
+
+.contact-us .message {
+    display: flex;
+}
+
+.phone-content p {
+    margin: 3px 0px 3px 14px;
+}
+
+.contact-us .fax-content {
+    padding-top: 5px;
+}
+
+.contact-us .fax-content p {
+    margin: 3px 0px 3px 14px;
+}
+
+.manufacturing {
+    padding: 50px 0 41px 0;
+}
+
+.email-title {
+    font-size: 19px;
+    font-weight: 700;
+    padding-left: 13px;
+}
+
+ul.social-content {
+    list-style: none;
+    text-align: center;
+    padding: 20px 0 0 30px;
+}
+
+ul.social-content li a {
+    float: left;
+    border: 1px solid #477CA7;
+    width: 40px;
+    height: 40px;
+    margin-right: 7px;
+    font-size: 16px;
+    padding: 7px 12px;
+    color: #fff;
+}
+
+.from-title h5 {
+    /*color: #001F5D;*/
+    font-size: 33px;
+    font-weight: 600;
+    padding: 28px 0;
+}
+
+.contact-form {
+    padding: 0 50px 0 0;
+}
+
+.contact-form .form-control {
+    border-radius: 0;
+    background: #F3F5F7;
+    border: 0;
+    color: #ACACAA;
+}
+
+.contact-form textarea {
+    border-radius: 0;
+    background: #F3F5F7;
+    border: 0;
+    color: #ACACAA;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.contact-form .btn-send {
+    background: #001F5D;
+    border-color: #001F5D;
+    border-radius: 0;
+    font-weight: 700;
+}
+
+.padding8-0 {
+    padding-right: 8px;
+    padding-left: 27px !important;
+    box-shadow: 1px 3px 4px #ddd
+}
+
+.padding4-0 {
+    padding-left: 0px !important;
+}

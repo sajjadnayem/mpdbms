@@ -36,9 +36,8 @@
                 <th>ID</th>
                 <th>Schedule Date</th>
                 <th>Details</th>
-                {{-- <th>Starting Time</th> --}}
-                {{-- <th>Machine Name</th> --}}
                 <th>Hour</th>
+                <th>Action</th>
                 {{-- <th>Action</th> --}}
             </thead>
             <tbody>
@@ -50,7 +49,13 @@
                         {{-- <td scope="row">{{$item->starting_time}}</td> --}}
                         {{-- <td scope="row">{{$item->machine_id}}</td> --}}
                         <td scope="row">{{$item->hour}}</td>
-                        <td scope="row">{{optional($item->schedule)->name}}</td>
+                        {{-- <td scope="row">{{optional($item->schedule)->name}}</td> --}}
+                        <td>
+                            <a href=""><i class="fas fa-edit"></i></a>
+                           @if (auth()->user()->role=="admin")
+                           <a href="{{route('schedule.delete', $item->id)}}"><i class="fas fa-trash"></i></a>
+                           @endif
+                        </td>
                         {{-- <td>
                             <a href="{{route('schedule.print',$item->id)}}" class="btn btn-info">Print Schedule</a>
                         </td> --}}
@@ -68,6 +73,7 @@
                 {{-- <th>Machine Name</th> --}}
                 <th>Hour</th>
                 {{-- <th>Action</th> --}}
+                {{-- <th>Action</th> --}}
             </thead>
             <tbody>
                 @foreach ($results as $key=>$item)
@@ -82,6 +88,7 @@
                         {{-- <td>
                             <a href="{{route('schedule.print',$item->id)}}" class="btn btn-info">Print Schedule</a>
                         </td> --}}
+                        
                     </tr>
                 @endforeach
             </tbody>
