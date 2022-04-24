@@ -16,10 +16,10 @@ class Demand extends Model
     {
         return $this->hasMany(DemandDetails::class,'demand_id','id');
     }
-    // public function UserDetails()
-    // {
-    //     return $this->belongsTo(User::class, 'user_id', 'id');
-    // }
+    public function UserDetails()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 
     // 
 }

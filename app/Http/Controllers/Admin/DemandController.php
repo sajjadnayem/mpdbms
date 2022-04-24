@@ -18,7 +18,8 @@ class DemandController extends Controller
     public function demand()
     {
         // $madicine_name = json_decode($request->medicine_name);
-        $demand = Demand::all();
+        $demand = Demand::with('UserDetails')->get();
+        // dd($demand);
 
         $madicine_name = $demand->pluck('medicine_name')->toArray();
 
