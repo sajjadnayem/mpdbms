@@ -7,6 +7,7 @@ use App\Mail\TestMail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
@@ -43,14 +44,20 @@ class UserController extends Controller
     public function storeUser(Request $request)
     {
         // dd($request->all());
+        if ($request->hasFile('userImage')) {
+            $file = $request->file('userImage');
+            $filename = date('ymdhis').'.'.$file->getClientOriginalExtension();
+            $file->storeAs('/uploads/user',$filename);
+        }
      $password=rand();
         User::create([
-                'name'=>$request->name,
+                'name'=>$request->username,
                 'email'=>$request->email, 
                 'address'=>$request->address,
                 'phone_number'=>$request->phone_number,
-                'email_verified_at'=>$request->email_verified_at,
+                'email_verified_at'=>Carbon::now(),
                 'password'=>bcrypt($password),
+                'image'=>$filename
         ]);
         $details = [
             'title' => 'Mail from MPDBMS admin',
