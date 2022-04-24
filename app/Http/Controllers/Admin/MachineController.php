@@ -23,7 +23,13 @@ class MachineController extends Controller
    }
    public function StoreMachine(Request $request)
    {
-        // dd($request->all()); 
+        // dd($request->all());
+        // for validation
+        $request->validate([
+            'name'=>'required',
+            'machine_rpm'=>'required',
+        ]);
+        //for creating machine 
      $machine=Machine::create([
         'name'=>$request->name,
         'machine_rpm'=>$request->machine_rpm,

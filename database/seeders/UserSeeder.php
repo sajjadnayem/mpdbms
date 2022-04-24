@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
             'password'=>bcrypt('12345'),
             'phone_number'=>'01700537174',
             'address'=>'Dhaka',
+            'image'=>'admin_image.jpg',
             'role'=>'admin'
         ]);
     }

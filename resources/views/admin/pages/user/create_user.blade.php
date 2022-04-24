@@ -14,11 +14,11 @@
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Contact Number</label>
-      <input type="number" id="UserMobile"  class="form-control" name="phone_number" required="required" placeholder="Enter user contact number">
+      <input type="number" id="UserMobile"  class="form-control" name="phone_number"  placeholder="Enter user contact number">
     </div>
     <div class="form-group">
         <label for="exampleInputPassword1">Address</label>
-        <input type="text" class="form-control" name="address" required="required" placeholder="Enter user address">
+        <input type="text" class="form-control" name="address"  placeholder="Enter user address">
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">User Image</label>
@@ -26,4 +26,10 @@
       </div>
     <button type="submit" class="btn btn-success">Submit</button>
   </form>
+  @if($errors->any()) 
+   
+      @php
+        toastr()->error(implode(' ', $errors->all()));
+      @endphp
+@endif 
 @endsection

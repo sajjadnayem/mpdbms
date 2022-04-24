@@ -35,6 +35,13 @@ class AdminController extends Controller
    }
    public function StoreMedicine(Request $request)
    {
+
+    // for validation
+    $request->validate([
+        'name'=>'required',
+        'category'=>'required',
+        'generic'=>'required',
+    ]);
     //    dd($request->all());
     $image_name=null;
     if($request->hasfile('medicine_image'))
@@ -95,6 +102,4 @@ class AdminController extends Controller
        Toastr::error('Medicine has been deleted','Danger');
        return redirect()->route('medicine');
    }
-
-
 }

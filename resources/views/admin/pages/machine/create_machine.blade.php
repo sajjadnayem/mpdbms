@@ -99,6 +99,12 @@
 
       <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+@if($errors->any()) 
+   
+@php
+  toastr()->error(implode(' ', $errors->all()));
+@endphp
+@endif 
 <script>
 $(".js-select2").select2({
     closeOnSelect : false,

@@ -49,6 +49,11 @@ class UserController extends Controller
             $filename = date('ymdhis').'.'.$file->getClientOriginalExtension();
             $file->storeAs('/uploads/user',$filename);
         }
+        // $request->validate([
+        //     'name'=>'required',
+        //     'email'=>'required',
+        //     'phone'=>'required'
+        // ]);
      $password=rand();
         User::create([
                 'name'=>$request->username,

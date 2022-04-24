@@ -75,7 +75,7 @@ class SchedulingController extends Controller
         if($hours<=$this->officeHour)
         {
         
-            //create a single schedule
+            // create a single schedule
             Schedule::create([
                 // 'date'=>$request->date,
                 'schedule_date'=>date('Y-m-d',strtotime($request->schedule_date)),
@@ -91,14 +91,14 @@ class SchedulingController extends Controller
         }else
         {
             $loop=$hours/$this->officeHour;
-            
+            // dd($loop);
             for($i=0; $i<(int)$loop;$i++)
             {
                
                 //create schedule
                 Schedule::create([
                     // 'date'=>$request->date,
-                    'schedule_date'=>date('Y-m-d',strtotime($request->schedule_date.' '.$i.' days')),
+                    'schedule_date'=>date('Y-m-d',strtotime($request->schedule_date.' +'.$i.' days')),
                     'details'=>$request->details,
                     // 'starting_time'=>$request->starting_time,
                     'machine_id'=>$request->selecteMachine,

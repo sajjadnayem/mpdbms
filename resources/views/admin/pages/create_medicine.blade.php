@@ -39,4 +39,10 @@
       </div>
       <button type="submit" class="btn btn-success mb-3">Submit</button>
     </form>
+    @if($errors->any()) 
+   
+    @php
+      toastr()->error(implode(' ', $errors->all()));
+    @endphp
+@endif 
 @endsection

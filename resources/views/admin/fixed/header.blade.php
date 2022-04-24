@@ -192,7 +192,7 @@
             <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                 aria-expanded="false">
                 <span class="account-user-avatar">
-                    <img src="{{url('backend/images/users/avatar-1.jpg')}}" alt="user-image" class="rounded-circle">
+                    <img src="{{url('/uploads/user/'.Auth::user()->image)}}" alt="user-image" class="rounded-circle">
                 </span>
                 <span>
                     <span class="account-user-name">{{auth()->user()->name}}</span>
