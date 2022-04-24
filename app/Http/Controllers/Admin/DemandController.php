@@ -110,7 +110,7 @@ class DemandController extends Controller
         $demand_details = DemandMedicine::where('demand_id',$demand_id)-> first();
         
         $demand = DemandMedicine::with('medicine', 'UserDetails')->where('demand_id',$demand_id)->get();
-        dd($demand);
+        // dd($demand);
         
         return view('admin.pages.demand.demand_details', compact('demand'));
     }
