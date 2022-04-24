@@ -19,7 +19,7 @@
         @foreach ($demand as $key=>$item)
         <tr>
             <th scope="row">{{$key+1}}</th>
-            <td>{{$item->user_id}}</td>
+            <td>{{$item->UserDetails->name}}</td>
             <td>{{$item->from_date}}</td>
             <td>{{$item->to_date}}</td>
             <td>{{$item->note}}</td>
