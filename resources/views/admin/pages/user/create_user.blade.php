@@ -14,7 +14,7 @@
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Contact Number</label>
-      <input type="number" id="UserMobile"  class="form-control" name="name="phone_number" required="required" placeholder="Enter user contact number">
+      <input type="number" id="UserMobile"  class="form-control" name="phone_number" required="required" placeholder="Enter user contact number">
     </div>
     <div class="form-group">
         <label for="exampleInputPassword1">Address</label>
