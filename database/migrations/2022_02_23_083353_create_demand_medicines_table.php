@@ -15,7 +15,7 @@ class CreateDemandMedicinesTable extends Migration
     {
         Schema::create('demand_medicines', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('demand_id');
+            $table->foreignId('demand_id')->constrained('demands')->cascadeOnDelete();
             $table->foreignId('medicine_id');
             $table->string('quantity');
             

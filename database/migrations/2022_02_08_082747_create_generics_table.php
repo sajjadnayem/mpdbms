@@ -16,7 +16,7 @@ class CreateGenericsTable extends Migration
         Schema::create('generics', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('details');
+            $table->longText('details');
             $table->timestamps();
         });
     }

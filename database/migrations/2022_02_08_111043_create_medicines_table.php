@@ -18,7 +18,7 @@ class CreateMedicinesTable extends Migration
             $table->string('name');
             $table->string('category_id');
             $table->string('generic_id');
-            $table->string('details');
+            $table->longText('details');
             $table->timestamps();
         });
     }

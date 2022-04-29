@@ -21,7 +21,7 @@ class UserController extends Controller
     {
         $userInfo=$request->except('_token');
         if(Auth::attempt($userInfo)){
-            return redirect()->route('admin.dashboard')->with(Toastr::success('Login Sueessful-Welcome to admin panel)','Success'));
+            return redirect()->route('admin.dashboard')->with(Toastr::success('Login Sueessful','Success'));
             ;
             // ('message', 'Login successful');
         }
@@ -35,10 +35,12 @@ class UserController extends Controller
     }
     public function user()
     {
-        return view('admin.pages.user.user');
+        $userInfo=User::all();
+        return view('admin.pages.user.user',compact('userInfo'));
     }
     public function createUser()
     {
+        
         return view('admin.pages.user.create_user');
     }
     public function storeUser(Request $request)

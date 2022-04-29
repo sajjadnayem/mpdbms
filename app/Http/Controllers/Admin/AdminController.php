@@ -59,7 +59,7 @@ class AdminController extends Controller
            'details'=>$request->details,
            'image'=>$image_name,
        ]);
-       Toastr::success('Medicine Created successfully:)','Success');
+       Toastr::success('Medicine Created successfully','Success');
        return redirect()->route('medicine');
    }
    public function viewMedicine($medicine_id)
@@ -93,13 +93,13 @@ class AdminController extends Controller
            'details'=>$request->details,
            'image'=>$image_name,
        ]);
-       Toastr::success('Medicine updated successfully :)','Success');
+       Toastr::info('Medicine updated successfully :)','Info');
        return redirect()->route('medicine');
    }
    public function deleteMedicine($medicine_id)
    {
        Medicine::find($medicine_id)->delete();
-       Toastr::error('Medicine has been deleted','Danger');
+       Toastr::warning('Medicine has been deleted','Warning');
        return redirect()->route('medicine');
    }
 }

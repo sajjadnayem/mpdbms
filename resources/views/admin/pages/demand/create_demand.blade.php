@@ -30,8 +30,8 @@
       <button type="submit" class="btn btn-primary">Create Demand</button>  --}}
 </form>
 <h1>Medicines</h1>
-<a href="{{route('demand.forgot')}}" class="btn btn-info">Clear</a>
-<table>
+<a href="{{route('demand.forgot')}}" class="btn btn-info">Clear</a><br><br>
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>Medicine name</th>
@@ -51,7 +51,7 @@
             </form>
         </td>
         <td>
-            <a href="{{route('demand.delete',$data['medicine_id'])}}" class="btn btn-info">Delete</a>
+            <a href="{{route('demand.delete',$data['medicine_id'])}}" class="btn btn-danger">Delete</a>
         </td>
     </tr>
     @endforeach
@@ -79,9 +79,8 @@
         <input type="text" class="form-control" id="name" name="note" placeholder="Enter any note">
       </div>
     </div>
-  </div>
+  </div><br>
   <button type="submit" class="btn btn-info">Submit</button>
-  
 </form>
 
 

@@ -47,5 +47,11 @@ class MachineController extends Controller
         Toastr::success('Machine created successfully ','Success');
         return redirect()->route('machine');
    }
+   public function deleteMachine($machine_id)
+   {
+       Machine::find($machine_id)->delete();
+       Toastr::warning('Machine has been deleted', 'Warning');
+       return redirect()->route('machine');
+   }
 }
 

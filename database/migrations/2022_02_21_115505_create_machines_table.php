@@ -19,7 +19,7 @@ class CreateMachinesTable extends Migration
             $table->string('machine_rpm');
             $table->string('rpm_quantity');
             // $table->string('medicine_id');
-            $table->string('details');
+            $table->longText('details');
             $table->timestamps();
         });
     }

@@ -28,7 +28,7 @@
                 <td>{{$item->details}}</td>
                 <td>
                     <a href="#"><i class="fas fa-edit"></i></a>
-                    <a href="#"><i class="fas fa-trash"></i></a>
+                    <a href="{{route('machine.delete', $data->id)}}"><i class="fas fa-trash"></i></a>
                 </td>
             </tr>
             @endforeach

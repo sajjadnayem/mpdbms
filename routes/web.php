@@ -77,6 +77,7 @@ Route::get('/delete/medicine/{medicine_id}', [AdminController::class, 'deleteMed
 Route::get('/machine', [MachineController::class, 'machine'])->name('machine');
 Route::get('/create/machine/', [MachineController::class, 'createMachine'])->name('create.machine');
 Route::post('/store/machine/', [MachineController::class, 'StoreMachine'])->name('machine.store');
+Route::get('/delete/machine/{machine_id}', [MachineController::class, 'deleteMachine'])->name('machine.delete');
 
 //for demand
 Route::get('/demand', [DemandController::class, 'demand'])->name('demand');

@@ -18,7 +18,7 @@ class CreateDemandsTable extends Migration
             $table->string('user_id');
             $table->date('from_date');
             $table->date('to_date');
-            $table->string('note');
+            $table->longText('note');
             // $table->string('details');
             // $table-> string('quantity');
             $table->timestamps();

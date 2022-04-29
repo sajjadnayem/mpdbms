@@ -112,7 +112,7 @@ class SchedulingController extends Controller
                 //create schedule for extra hour
                 Schedule::create([
                     // 'date'=>$request->date,
-                    'schedule_date'=>date('Y-m-d',strtotime($request->schedule_date.' '.$i+1 .' days')),
+                    'schedule_date'=>date('Y-m-d',strtotime($request->schedule_date.' '.$i .' days')),
                     'details'=>$request->details,
                     // 'starting_time'=>$request->starting_time,
                     'machine_id'=>$request->selecteMachine,

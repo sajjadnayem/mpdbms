@@ -10,7 +10,7 @@
                 </form>
             </div>
         </li>
-        <li class="dropdown notification-list topbar-dropdown">
+        {{-- <li class="dropdown notification-list topbar-dropdown">
             <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                 <img src="{{url('backend/images/flags/us.jpg')}}" alt="user-image" class="me-0 me-sm-1" height="12">
                 <span class="align-middle d-none d-sm-inline-block">English</span> <i class="mdi mdi-chevron-down d-none d-sm-inline-block align-middle"></i>
@@ -38,9 +38,9 @@
                 </a>
 
             </div>
-        </li>
+        </li> --}}
 
-        <li class="dropdown notification-list">
+        {{-- <li class="dropdown notification-list">
             <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                 <i class="dripicons-bell noti-icon"></i>
                 <span class="noti-icon-badge"></span>
@@ -127,7 +127,7 @@
                 </a>
 
             </div>
-        </li>
+        </li> --}}
 
         <li class="dropdown notification-list d-none d-sm-inline-block">
             <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
@@ -212,22 +212,22 @@
                 </a>
 
                 <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                {{-- <a href="javascript:void(0);" class="dropdown-item notify-item">
                     <i class="mdi mdi-account-edit me-1"></i>
                     <span>Settings</span>
-                </a>
+                </a> --}}
 
                 <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                {{-- <a href="javascript:void(0);" class="dropdown-item notify-item">
                     <i class="mdi mdi-lifebuoy me-1"></i>
                     <span>Support</span>
-                </a>
+                </a> --}}
 
                 <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                {{-- <a href="javascript:void(0);" class="dropdown-item notify-item">
                     <i class="mdi mdi-lock-outline me-1"></i>
                     <span>Lock Screen</span>
-                </a>
+                </a> --}}
 
                 <!-- item-->
                 <a href="{{route('admin.logout')}}" class="dropdown-item notify-item">

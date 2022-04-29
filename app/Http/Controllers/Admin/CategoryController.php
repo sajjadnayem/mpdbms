@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\Category;
 use App\Models\Generic;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Brian2694\Toastr\Facades\Toastr;
 
 class CategoryController extends Controller
 {
@@ -30,7 +31,7 @@ class CategoryController extends Controller
             'name'=>$request->name,
             'details'=>$request->details,
         ]);
-        return redirect()->route('category')->with('success','Category has been created');
+        return redirect()->route('category')->with(Toastr::success('Category Created successfully','Success'));
     }
     public function editCategory($category_id)
     {
@@ -44,12 +45,12 @@ class CategoryController extends Controller
             'name'=>$request->name,
             'details'=>$request->details,
         ]);
-        return redirect()->route('category')->with('success','Category Updated Successfully.');
+        return redirect()->route('category')->with(Toastr::info('Category Updated successfully','Info'));
     }
     public function deleteCategory($category_id)
     {
         Category::find($category_id)->delete();
-        return redirect()->back()->with('danger',"Cause has been deleted.");
+        return redirect()->back()->with(Toastr::danger('Category has been deletd','Danger'));
     }
     public function generic()
     {
@@ -71,7 +72,7 @@ class CategoryController extends Controller
             'name'=>$request->name,
             'details'=>$request->details
         ]);
-        return redirect()->route('generic')->with('success', 'Generic has been created.');
+        return redirect()->route('generic')->with(Toastr::success('Generic created successfully','Success'));
     }
     public function editGeneric($generic_id)
     {
@@ -85,11 +86,11 @@ class CategoryController extends Controller
             'name'=>$request->name,
             'details'=>$request->details,
         ]);
-        return redirect()->route('generic')->with('success','Generic Updated Successfully.');
+        return redirect()->route('generic')->with(Toastr::info('Generic Updated successfully','Info'));
     }
     public function deleteGeneric($generic_id)
     {
         Generic::find($generic_id)->delete();
-        return redirect()->back()->with('danger',"Generic has been deleted.");
+        return redirect()->back()->with(Toastr::warning('Generic has been deleted','Warning'));
     }
 }

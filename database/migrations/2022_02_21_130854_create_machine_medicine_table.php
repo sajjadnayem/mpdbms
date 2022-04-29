@@ -15,8 +15,8 @@ class CreateMachineMedicineTable extends Migration
     {
         Schema::create('machine_medicine', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('machine_id')->constrained('machines');
-            $table->foreignId('medicine_id')->constrained('medicines');
+            $table->foreignId('machine_id')->constrained('machines')->cascadeOnDelete();
+            $table->foreignId('medicine_id')->constrained('medicines')->cascadeOnDelete();
             $table->double('quantity');
             $table->timestamps();
         });

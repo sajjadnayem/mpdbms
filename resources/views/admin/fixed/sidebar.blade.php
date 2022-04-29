@@ -1,18 +1,19 @@
 <div class="leftside-menu">
     <!-- LOGO -->
-    <a href="index.html" class="logo text-center logo-light">
+    <a href="{{route('admin.dashboard')}}" class="logo text-center logo-light">
         <span class="logo-lg">
-            <img src="{{url('backend/images/logo.png')}}" alt="" height="16">
+            <p style="font-weight: 700;  color: white">MPDBMS</p>
         </span>
-        <span class="logo-sm">
+        {{-- <span class="logo-sm">
             <img src="{{url('backend/images/logo_sm.png')}}" alt="" height="16">
-        </span>
+        </span> --}}
     </a>
 
     <!-- LOGO -->
     <a href="index.html" class="logo text-center logo-dark">
         <span class="logo-lg">
-            <img src="{{url('backend/images/logo-dark.png')}}" alt="" height="16">
+           
+            {{-- <img src="{{url('backend/images/logo-dark.png')}}" alt="" height="16"> --}}
         </span>
         <span class="logo-sm">
             <img src="{{url('backend/images/logo_sm_dark.png')}}" alt="" height="16">
@@ -28,7 +29,7 @@
             @if (auth()->user()->role == "admin")
 
             <li class="side-nav-item">
-                <a  href="" class="side-nav-link">
+                <a  href="{{route('admin.dashboard')}}" class="side-nav-link">
                     {{-- {{route('admin.dashboard')}} --}}
                     {{-- <span class="badge bg-success float-end">4</span> --}}
                     <i class="uil-home-alt"></i> Dashboards
@@ -52,6 +53,13 @@
             </li>
 
             <li class="side-nav-title side-nav-item">Apps</li>
+
+            <li class="side-nav-item">
+                <a href="{{route('user')}}" class="side-nav-link">
+                    <i class="uil-copy-alt"></i>
+                    <span>User</span>
+                </a>
+            </li>
 
             <li class="side-nav-item">
                 <a href="{{route('category')}}" class="side-nav-link">
@@ -80,12 +88,12 @@
                 </a>
             </li>
 
-            <li class="side-nav-item">
+            {{-- <li class="side-nav-item">
                 <a href="{{route('machine')}}" class="side-nav-link">
                     <i class="uil-copy-alt"></i>
                     <span> Medichine Machine </span>
                 </a>
-            </li>
+            </li> --}}
 
             <li class="side-nav-item">
                 <a href="{{route('demand')}}" class="side-nav-link">
@@ -99,12 +107,7 @@
                     <span>Schedule</span>
                 </a>
             </li>
-            <li class="side-nav-item">
-                <a href="{{route('user')}}" class="side-nav-link">
-                    <i class="uil-copy-alt"></i>
-                    <span>User</span>
-                </a>
-            </li>
+            
             @endif
 
             @if (auth()->user()->role == "user")

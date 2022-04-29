@@ -17,11 +17,11 @@ class CreateSchedulesTable extends Migration
             $table->id();
             // $table->date('date');
             $table->string('schedule_date');
-            $table->string('details');
+            $table->longText('details');
             // $table->date('starting_time');
             $table->string('machine_id');
             // $table->string('medicine_id');
-            $table->foreignId('demand_details_id')->nullable();
+            $table->foreignId('demand_details_id')->constrained('demand_medicines')->cascadeOnDelete();
             $table->string('hour');
             $table->timestamps();
         });
